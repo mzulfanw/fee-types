@@ -10,15 +10,18 @@ import Breadcrumbs from '@/components/molecules/Breadcrumbs'
 const sidebarStyle = {
   height: '100vh',
   backgroundColor: '#027f71',
-  paddingRight: '2rem',
-  paddingLeft: '2rem',
-  textAlign: 'center'
+  paddingRight: '1rem',
+  paddingLeft: '1rem',
+  textAlign: 'center',
+  width: '10%'
 }
 
 const mainStyle = {
   flexGrow: 1,
   height: '100vh',
-  overflow: 'auto'
+  overflow: 'auto',
+  paddingRight: '2.5rem',
+  paddingLeft: '2.5rem'
 }
 
 function Layout({
