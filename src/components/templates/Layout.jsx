@@ -5,6 +5,7 @@ import Sidebar from '@/components/templates/Sidebar'
 import PropTypes from 'prop-types'
 import Footer from './Footer'
 import { Container } from 'react-bootstrap'
+import Breadcrumbs from '@/components/molecules/Breadcrumbs'
 
 const sidebarStyle = {
   height: '100vh',
@@ -42,6 +43,7 @@ function Layout({
           className='mt-5'
         // style={mainStyle}
         >
+          <Breadcrumbs />
           {children}
         </main>
         <Footer />

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.7.0",
     "bootstrap": "^5.2.3",
     "formik": "^2.2.9",
     "install": "^0.13.0",

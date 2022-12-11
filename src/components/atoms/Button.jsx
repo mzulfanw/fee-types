@@ -7,7 +7,8 @@ function Button({
   type = 'button',
   text,
   disabled = false,
-  size = 'sm'
+  size = 'sm',
+  ...other
 }) {
   return (
     <BSButton
@@ -15,6 +16,7 @@ function Button({
       type={type}
       disabled={disabled}
       size={size}
+      {...other}
     >
       {text}
     </BSButton>

@@ -1,8 +1,10 @@
 // * Call All atoms to one pattern 
 import Button from './Button'
 import Icon from './Icon'
+import Input from './Input'
 
 export {
   Button,
-  Icon
+  Icon,
+  Input
 }
