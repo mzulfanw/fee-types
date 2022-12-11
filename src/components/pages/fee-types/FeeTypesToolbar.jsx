@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Button, Input } from '@/components/atoms/index'
 import { Row, Col } from 'react-bootstrap'
 import { RxDoubleArrowDown, RxDoubleArrowUp } from 'react-icons/rx'
+import { useNavigate } from 'react-router-dom'
 
 function FeeTypesToolbar() {
   const [open, setOpen] = useState(false)
+  const navigate = useNavigate()
   return (
     <div
       className='mt-4'
@@ -61,6 +63,7 @@ function FeeTypesToolbar() {
                 variant='warning'
                 type='button'
                 size='md'
+                onClick={() => { navigate('/fee-types/create') }}
               />
             </Col>
           </Row>
