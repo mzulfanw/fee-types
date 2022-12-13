@@ -13,6 +13,7 @@ function FeeTypesTable({
   return (
     <Table
       table={table}
+      total={dummy}
     >
       {
         dummy?.map((val, index) => (

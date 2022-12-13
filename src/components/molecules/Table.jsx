@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { flexRender } from '@tanstack/react-table'
+import { Pagination } from 'react-bootstrap'
 
 function Table({
   table,
+  total,
   children
 }) {
+  console.log(total)
   return (
     <>
       {
@@ -67,6 +70,24 @@ function Table({
             {children}
           </tbody>
         </table>
+        <div
+          className='d-flex justify-content-end align-items-center gap-3 mt-5'
+        >
+          <p>Page : </p>
+          <Pagination>
+            <Pagination.Prev />
+            {
+              total?.map((_, index) => (
+                <Pagination.Item
+                  key={index}
+                >
+                  {index + 1}
+                </Pagination.Item>
+              ))
+            }
+            <Pagination.Next />
+          </Pagination>
+        </div>
       </div>
     </>
   )
@@ -74,6 +95,7 @@ function Table({
 
 Table.propTypes = {
   table: PropTypes.object,
+  total: PropTypes.array,
   children: PropTypes.node
 }
 
