@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { flexRender } from '@tanstack/react-table'
 
 function Table({
-  table
+  table,
+  children
 }) {
-
   return (
     <>
       {
@@ -22,8 +22,11 @@ function Table({
                 
                 text-align: left;
                 padding: 8px;
-                background-color: #5E5E5E;
+                // background-color: #5E5E5E;
                 color: #fff;
+            }
+              tr:nth-child(even) {
+              background-color: #dddddd;
             }
           `
           }
@@ -33,7 +36,7 @@ function Table({
         className='p-2'
       >
         <table>
-          <thead>
+          <thead style={{ backgroundColor: '#5E5E5E' }}>
             {
               table.getHeaderGroups().map(headerGroup => (
                 <tr
@@ -43,6 +46,7 @@ function Table({
                     headerGroup.headers.map(header => (
                       <th
                         key={header.id}
+                        style={{ width: header.getSize() }}
                       >
                         {
                           header.isPlaceholder
@@ -59,6 +63,9 @@ function Table({
               ))
             }
           </thead>
+          <tbody>
+            {children}
+          </tbody>
         </table>
       </div>
     </>
@@ -66,7 +73,8 @@ function Table({
 }
 
 Table.propTypes = {
-  table: PropTypes.object
+  table: PropTypes.object,
+  children: PropTypes.node
 }
 
 export default Table
