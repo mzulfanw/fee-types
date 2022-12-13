@@ -10,6 +10,10 @@ function FeeTypesToolbar() {
   return (
     <div
       className='mt-4'
+      style={{
+        paddingLeft: '.5rem',
+        paddingRight: '.5rem'
+      }}
     >
       <Row>
         <Col
