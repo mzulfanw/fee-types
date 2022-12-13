@@ -3,6 +3,7 @@ import FeeTypesToolbar from './FeeTypesToolbar'
 import PropTypes from 'prop-types'
 import {
   createColumnHelper,
+  getCoreRowModel,
   useReactTable
 } from '@tanstack/react-table'
 import FeeTypesTable from './FeeTypesTable'
@@ -17,13 +18,15 @@ const columns = [
     header: 'Fee Type Name'
   }),
   columnHelper.accessor('desc', {
-    header: 'Description'
+    header: 'Description',
+    size: 200
   }),
   columnHelper.accessor('status', {
     header: 'Status'
   }),
   columnHelper.accessor('actions', {
-    header: 'Actions'
+    header: 'Actions',
+    size: 80
   })
 ]
 function FeeTypes({
@@ -31,7 +34,8 @@ function FeeTypes({
 }) {
   const table = useReactTable({
     data: data,
-    columns
+    columns,
+    getCoreRowModel: getCoreRowModel()
   })
   return (
     <div>
