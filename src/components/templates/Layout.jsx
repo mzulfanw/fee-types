@@ -34,9 +34,9 @@ function Layout({
       <Sidebar
         sx={sidebarStyle}
       />
-      {/* <Nav
-      className='col-auto'
-      /> */}
+      <Nav
+
+      />
       <Container
         className='col-9'
         style={mainStyle}

@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { Button, Input } from '@/components/atoms/index'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Alert, Form } from 'react-bootstrap'
 import { RxDoubleArrowDown, RxDoubleArrowUp } from 'react-icons/rx'
 import { useNavigate } from 'react-router-dom'
+import { FiRefreshCw, FiPrinter, FiDownload } from 'react-icons/fi'
 
 function FeeTypesToolbar() {
   const [open, setOpen] = useState(false)
   const navigate = useNavigate()
   return (
     <div
-      className='mt-4'
+      className='mt-4 mb-3'
       style={{
         paddingLeft: '.5rem',
         paddingRight: '.5rem'
@@ -19,13 +20,15 @@ function FeeTypesToolbar() {
         <Col
           xl={6}
         >
-          <Row>
-            <Col>
+          <div
+            className='d-flex align-items-center justify-content-between'
+          >
+            <div>
               <Input
                 placeholder='Search...'
               />
-            </Col>
-            <Col>
+            </div>
+            <div>
               <div
                 className='fw-bold'
                 style={{
@@ -42,25 +45,40 @@ function FeeTypesToolbar() {
                   open ? <RxDoubleArrowDown /> : <RxDoubleArrowUp />
                 }
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </Col>
         <Col
           xl={6}
         >
-          <Row>
-            <Col
-              xl={4}
+          <div className='d-flex justify-content-end align-items-center gap-3'>
+            <div
             >
-              SCG
-            </Col>
-            <Col
-              xl={4}
+              <FiDownload
+                style={{
+                  backgroundColor: '#5E5E5E',
+                  color: 'white',
+                  fontSize: '34px',
+                  padding: '10px 10px',
+                  borderRadius: '50%',
+                  cursor: 'pointer'
+                }}
+              />
+            </div>
+            <div
             >
-              ASD
-            </Col>
-            <Col
-              xl={4}
+              <FiPrinter
+                style={{
+                  backgroundColor: '#5E5E5E',
+                  color: 'white',
+                  fontSize: '34px',
+                  padding: '10px 10px',
+                  borderRadius: '50%',
+                  cursor: 'pointer'
+                }}
+              />
+            </div>
+            <div
             >
               <Button
                 text='Create New'
@@ -69,10 +87,43 @@ function FeeTypesToolbar() {
                 size='md'
                 onClick={() => { navigate('/fee-types/create') }}
               />
-            </Col>
-          </Row>
+            </div>
+          </div>
         </Col>
       </Row>
+      {
+        open && (
+          <Alert
+            variant='secondary'
+            className='mt-3'
+          >
+            <div
+              className='d-flex justify-content-between align-items-start mx-2'
+            >
+              <div>
+                <p className='mb-1'>Status</p>
+                <Form.Select aria-label='select-options'>
+                  <option value='' disabled selected>Status</option>
+                  <option value='1'>Active</option>
+                  <option value='3'>Inactive</option>
+                </Form.Select>
+              </div>
+              <div>
+                <FiRefreshCw
+                  style={{
+                    backgroundColor: '#5E5E5E',
+                    color: 'white',
+                    fontSize: '34px',
+                    padding: '10px 10px',
+                    borderRadius: '50%',
+                    cursor: 'pointer'
+                  }}
+                />
+              </div>
+            </div>
+          </Alert>
+        )
+      }
     </div>
   )
 }

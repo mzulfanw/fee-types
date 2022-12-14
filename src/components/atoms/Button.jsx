@@ -8,6 +8,7 @@ function Button({
   text,
   disabled = false,
   size = 'sm',
+  onClick = () => { },
   ...other
 }) {
   return (
@@ -16,6 +17,7 @@ function Button({
       type={type}
       disabled={disabled}
       size={size}
+      onClick={onClick}
       {...other}
     >
       {text}
@@ -28,7 +30,8 @@ Button.propTypes = {
   type: PropTypes.string,
   text: PropTypes.string,
   disabled: PropTypes.bool,
-  size: PropTypes.string
+  size: PropTypes.string,
+  onClick: PropTypes.func
 }
 
 export default Button
