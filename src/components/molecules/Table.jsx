@@ -8,7 +8,6 @@ function Table({
   total,
   children
 }) {
-  console.log(total)
   return (
     <>
       {
